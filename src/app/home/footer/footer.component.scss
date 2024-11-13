@@ -1,0 +1,36 @@
+/* CSS atualizado para centralizar os ícones corretamente */
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px; /* Ajusta o espaço entre os ícones */
+    margin-bottom: 15px; /* Espaço entre os ícones e o texto */
+  }
+  
+  .social-links a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #17a2b8;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 15px 0;
+    }
+    
+    .social-links {
+      gap: 15px; /* Diminui o espaço entre os ícones em telas menores */
+    }
+  }
+  

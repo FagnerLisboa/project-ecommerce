@@ -7,12 +7,13 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
 import { SearchBarComponent } from './home/search-bar/search-bar.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './home/footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './home/header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,19 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
     NavbarComponent,
     SearchBarComponent,
     ShoppingCartComponent,
-    ContactComponent,
     FooterComponent,
     HeaderComponent,
     NotFoundComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

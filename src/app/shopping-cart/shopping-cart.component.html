@@ -1,1 +1,18 @@
-<p>shopping-cart works!</p>
+<h2 class="cart-title">Carrinho</h2>
+<div >
+    <ul>
+        <li *ngFor="let itemCarrinho of ">
+            <img [src]="itemCarrinho">
+            <p></p>
+            <p></p>
+            <label>
+                Quantidade:
+                <input type="number" >
+            </label>
+            <button class="remove-button" ><i class="fa-solid fa-xmark"></i></button>
+        </li>
+    </ul>
+    <h2 class="card-total"> </h2>
+    <button class="buy-button" >Comprar</button>
+</div>
+<ng-template #semProduto>Nenhum produto foi adicionado ao carrinho</ng-template>

@@ -1,0 +1,38 @@
+/* Aplica o fundo da imagem e centraliza o conteúdo */
+.home-container {
+  min-height: 100vh; /* Preenche a altura inteira da janela */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  background-image: url('/assets/background.jpg');
+  background-size: cover; /* Preenche a tela inteira */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  color: white; /* Texto branco para contraste */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Ajusta o estilo do botão */
+.enter-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.enter-button:hover {
+  background-color: #0056b3; /* Efeito ao passar o mouse */
+}
+
+/* Ajusta a descrição */
+.description {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 600px; /* Limita a largura da descrição */
+}
