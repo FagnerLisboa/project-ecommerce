@@ -2,16 +2,19 @@
     <h1 class="text-center mb-4">Produtos</h1>
     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
       <div class="col">
-        <div class="card h-100">
-          <img src="assets/fone-de-ouvido-1.jpg" class="card-img-top" alt="Produto 1">
-          <div class="card-body">
-            <h5 class="card-title">Fone de ouvido</h5>
-            <p class="card-text">Descrição breve do produto.</p>
-            <h6 class="text-success">R$29.99</h6>
-            <a routerLink="/product-details" class="btn btn-outline-primary">Ver Produto</a>
-          </div>
+        <div class="col" *ngFor="let product of products">
+          <div class="card h-100">
+            <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description | slice:0:100 }}...</p>
+              <h6 class="text-success">${{ product.price }}</h6>
+              <a [routerLink]="['/product-details', product.id]" class="btn btn-outline-primary">Ver Produto</a>
+            </div>
         </div>
       </div>
+      </div>
+      
       <div class="col">
         <div class="card h-100">
           <img src="assets/fone-de-ouvido-2.jpg" class="card-img-top" alt="Produto 2">
@@ -30,7 +33,7 @@
             <h5 class="card-title">Fone de ouvido</h5>
             <p class="card-text">Descrição breve do produto.</p>
             <h6 class="text-success">R$49.99</h6>
-            <a routerLink="" class="btn btn-outline-primary">Ver Produto</a>
+            <a routerLink="/product-details" class="btn btn-outline-primary">Ver Produto</a>
           </div>
         </div>
       </div>
