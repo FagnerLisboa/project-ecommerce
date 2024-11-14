@@ -1,0 +1,23 @@
+.product-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .product-description {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .stars {
+    color: gold;
+    font-size: 1.5rem;
+  }
+  
+  .related-products {
+    overflow-x: auto;
+  }
+  
+  .related-products .card {
+    min-width: 200px;
+  }
+  
