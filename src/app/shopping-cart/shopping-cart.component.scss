@@ -1,62 +1,45 @@
-.cart-title {
-    font-size: 44px;
-    color: var(--gray);
-    font-weight: 700;
-    padding: 8px 0;
-}
+/* shopping-cart.component.scss */
 
-li {
-    display: flex;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+/* Ajuste da imagem do produto */
+.card-img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Adicionando um pouco de sombra aos cards */
+  .card {
+    border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden;
-    margin: 10px 0;
-    height: 100px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-img {
-    width: 100px;
-    height: 100px;
-    display: block;
-}
-
-.remove-button {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 20px;
-    height: 100%;
-    transition: .2s all;
-}
-
-.remove-button:hover {
-    filter: brightness(0.9);
-}
-
-.cart-total {
-    font-size: 24px;
-    color: var(--gray);
-    font-weight: 700;
-    padding: 8px 0;
-}
-
-input {
-    width: 30px;
-    text-align: center;
-}
-
-.buy-button {
-    background-color: var(--blue);
-    border: none;
-    color: white;
-    padding: 10px;
-    font-size: 22px;
-    margin-bottom: 10px;
-    transition: .3s all;
-}
-
-.buy-button:hover {
-    filter: brightness(0.9);
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Botões de quantidade */
+  button.btn-outline-secondary {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    padding: 0;
+    margin: 0 10px;
+  }
+  
+  /* Espaciamento no título */
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* Ajuste do preço */
+  .card-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Botão para 'Comprar' e 'Limpar Carrinho' */
+  button.btn-warning, button.btn-success {
+    font-size: 18px;
+    padding: 12px;
+  }
+  

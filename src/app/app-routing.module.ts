@@ -9,8 +9,8 @@ import { ProductsComponent } from './products/products.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'carrinho', component: ShoppingCartComponent },
-  { path: 'products', component: ProductsComponent }, 
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: '**', component: NotFoundComponent } // Página 404 para rotas não encontradas
 ];
 

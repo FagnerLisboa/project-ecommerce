@@ -1,62 +1,35 @@
 <div class="container mt-5">
-
     <div class="row">
-
-        <div class="col-md-6">
-            <img src="assets/teclado-1.jpg" alt="Produto" class="img-fluid rounded" />
+      <div class="col-md-6">
+        <img [src]="product?.image" alt="Produto" class="img-fluid rounded" />
+      </div>
+  
+      <div class="col-md-6">
+        <h1 class="product-title">{{ product?.title }}</h1>
+        <p class="product-description">{{ product?.description | slice:0:200 }}...</p>
+        <h3 class="text-success">${{ product?.price }}</h3>
+  
+        <button class="btn btn-primary btn-lg mt-3" (click)="addToCart()">
+          <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+        </button>
+  
+        <div class="mt-4">
+          <h4>Avaliações</h4>
+          <div class="stars">
+            ★★★★☆ ({{ product?.rating?.rate }})
+          </div>
+          <p>Baseado em {{ product?.rating?.count }} avaliações.</p>
         </div>
-
-
-        <div class="col-md-6">
-            <h1 class="product-title">Nome do Produto</h1>
-            <p class="product-description">
-                Descrição breve do produto. Destaque os principais benefícios e
-                características.
-            </p>
-            <h3 class="text-success">$99.99</h3>
-
-
-            <button class="btn btn-primary btn-lg mt-3">
-                <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
-            </button>
-
-
-            <div class="mt-4">
-                <h4>Avaliações</h4>
-                <div class="stars">
-                    ★★★★☆ (4.5)
-                </div>
-                <p>Baseado em 123 avaliações.</p>
-            </div>
-        </div>
+      </div>
     </div>
-
-
+  
     <div class="row mt-5">
-        <div class="col-12">
-            <h3>Detalhes do Produto</h3>
-            <p>
-                Aqui você pode adicionar uma descrição detalhada do produto,
-                especificações técnicas, materiais, funcionalidades, etc.
-            </p>
-        </div>
+      <div class="col-12">
+        <h3>Detalhes do Produto</h3>
+        <p>
+          {{ product?.description | slice:0:500 }}...
+        </p>
+      </div>
     </div>
-
-
-    <div class="row mt-5">
-        <div class="col-12">
-            <h3>Produtos Relacionados</h3>
-            <div class="related-products d-flex">
-                <div class="card m-2" style="width: 18rem;">
-                    <img src="assets/teclado-1.jpg" class="card-img-top" alt="Produto Relacionado 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Produto Relacionado 1</h5>
-                        <p class="card-text">$49.99</p>
-                        <button class="btn btn-primary">Adicionar ao Carrinho</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
+  

@@ -1,18 +1,47 @@
-<h2 class="cart-title">Carrinho</h2>
-<div >
-    <ul>
-        <li *ngFor="let itemCarrinho of ">
-            <img [src]="itemCarrinho">
-            <p></p>
-            <p></p>
-            <label>
-                Quantidade:
-                <input type="number" >
-            </label>
-            <button class="remove-button" ><i class="fa-solid fa-xmark"></i></button>
-        </li>
-    </ul>
-    <h2 class="card-total"> </h2>
-    <button class="buy-button" >Comprar</button>
-</div>
-<ng-template #semProduto>Nenhum produto foi adicionado ao carrinho</ng-template>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Carrinho de Compras</h1>
+    
+    <!-- Mensagem de Carrinho Vazio -->
+    <div *ngIf="cartItems.length === 0" class="text-center">
+      <p class="lead">O carrinho está vazio.</p>
+    </div>
+  
+    <!-- Carrinho com Itens -->
+    <div *ngIf="cartItems.length > 0">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div *ngFor="let item of cartItems" class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <img [src]="item.image" alt="{{ item.title }}" class="card-img">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.title }}</h5>
+                  <p class="card-text">{{ item.price | currency }}</p>
+                  <div class="d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-secondary" (click)="decreaseQuantity(item)">-</button>
+                    <span class="mx-3">{{ item.quantity }}</span>
+                    <button class="btn btn-sm btn-outline-secondary" (click)="increaseQuantity(item)">+</button>
+                  </div>
+                  <button class="btn btn-danger btn-sm mt-2" (click)="removeFromCart(item.id)">Remover</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Resumo do Carrinho</h5>
+              <p>Total de Itens: {{ getTotalItems() }}</p>
+              <p class="lead">{{ getTotalPrice() | currency }}</p>
+              <button class="btn btn-warning w-100" (click)="clearCart()">Limpar Carrinho</button>
+              <button class="btn btn-success w-100 mt-3" (click)="buyItems()">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
