@@ -55,4 +55,8 @@ export class ShoppingCartComponent implements OnInit {
       this.clearCart();
     }
   }
+
+  getTotalItens(): number {
+    return this.cartItems.reduce((total, item) => total + item.quantity)
+  } 
 }

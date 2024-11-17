@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'carrinho', component: ShoppingCartComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: '**', component: NotFoundComponent } // Página 404 para rotas não encontradas
+  //{ path: '**', component: NotFoundComponent }  Página 404 para rotas não encontradas
 ];
 
 @NgModule({

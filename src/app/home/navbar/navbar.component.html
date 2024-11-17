@@ -25,10 +25,16 @@
       </form>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-person"></i></a>
+          <a class="nav-link" href="#"><i class="bi bi-person fs-2"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/carrinho"><i class="bi bi-cart"></i></a>
+          <a class="nav-link position-relative" routerLink="/carrinho">
+            <i class="bi bi-cart fs-2"></i>
+            <span *ngIf="cartItems.length > 0" class="position-absolute  translate-middle badge rounded-pill bg-danger">
+              {{ getTotalItems() }}
+              <span class="visually-hidden">itens no carrinho</span>
+            </span>
+          </a>
         </li>
       </ul>
     </div>

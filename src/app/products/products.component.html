@@ -1,16 +1,20 @@
 <div class="container mt-5">
   <h1 class="text-center mb-4">Produtos</h1>
+
+  <app-search-bar (searchTermChange)="onSearch($event)"></app-search-bar>
+  
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col" *ngFor="let product of products">
       <div class="card h-100">
         <img [src]="product.image" class="card-img-top" alt="{{ product.title }}">
         <div class="card-body">
-          <h5 class="card-title">{{ product.title | slice:0:10 }}...</h5>
-          <p class="card-text">{{ product.description | slice:0:30 }}...</p>
+          <h5 class="card-title">{{ product.title | slice:0:08 }}...</h5>
+          <p class="card-text">{{ product.description | slice:0:20 }}...</p>
           <h6 class="text-success">${{ product.price }}</h6>
           <a [routerLink]="['/product-details', product.id]" class="btn btn-outline-primary">Ver Produto</a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div>   
+S
