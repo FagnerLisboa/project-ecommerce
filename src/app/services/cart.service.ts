@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: any[] = [];
-  cartItems$: any;
+  private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
 
   getCartItems(): any[] {
-    return this.cartItems;
+    return this.cartItemsSubject.value;
   }
 
   addToCart(item: any): void {
-    const existingItem = this.cartItems.find(cartItem => cartItem.id === item.id);
-
-    console.log('existingItem: ', existingItem);
-    console.log('this.cartItems: ', this.cartItems);
-    
+    const currentCartItems = this.cartItemsSubject.value;
+    const existingItem = currentCartItems.find(cartItem => cartItem.id === item.id);
 
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      this.cartItems.push({ ...item, quantity: 1 });
+      currentCartItems.push({ ...item, quantity: 1 });
     }
+    this.cartItemsSubject.next(currentCartItems); // Atualiza o estado
   }
 
   removeFromCart(itemId: number): void {
-    this.cartItems = this.cartItems.filter(item => item.id !== itemId);
+    const updatedCartItems = this.cartItemsSubject.value.filter(item => item.id !== itemId);
+    this.cartItemsSubject.next(updatedCartItems);
   }
 
   clearCart(): void {
-    this.cartItems = [];
+    this.cartItemsSubject.next([]);
   }
 
   getTotalItems(): number {
-    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
+    return this.cartItemsSubject.value.reduce((total, item) => total + (item.quantity || 0), 0);
   }
 }

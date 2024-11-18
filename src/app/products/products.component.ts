@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { CartService } from '../services/cart.service';
+import { SearchService } from '../services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -10,38 +11,52 @@ import { CartService } from '../services/cart.service';
 export class ProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
-  searchTerm: any;
-  
+  searchTerm: string = '';
+  searchSubscription!: Subscription;
+  isLoading: boolean = true;
+
   constructor(
     private productService: ProductService,
-    private cartService: CartService
-  ) { }
+    public searchService: SearchService 
+  ) {}
 
   ngOnInit(): void {
+    this.isLoading = true; 
     this.productService.getProducts().subscribe((data: any) => {
-    this.products = data;
+      this.products = data;
+      this.filteredProducts = data;
+      console.log('Produtos carregados:', this.products);
+  
+      if (this.searchService.currentSearchTerm) {
+        this.filterProducts(this.searchService.currentSearchTerm);
+      }
+  
+      this.isLoading = false; 
     });
-    this.products = this.loadProducts();
-    this.filteredProducts = this.products;
+  
+    this.searchSubscription = this.searchService.searchTerm$.subscribe((term: string) => {
+      if (this.products.length > 0) {
+        this.filterProducts(term);
+      } else {
+        console.log('Produtos ainda não carregados. Ignorando filtro.');
+      }
+    });
+  }
+  
+
+  filterProducts(searchTerm: string): void {
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    this.filteredProducts = this.products.filter(product => {
+      const title = product.title ? product.title.toLowerCase() : '';
+      const description = product.description ? product.description.toLowerCase() : '';
+      return title.includes(lowerCaseSearchTerm) || description.includes(lowerCaseSearchTerm);
+    });
+    console.log('Produtos filtrados:', this.filteredProducts);
   }
 
-  onSearch(searchTerm: string): void {
-    this.searchTerm = searchTerm;
-    this.filterProducts();
-  }
-
-  filterProducts(): void {
-    this.filteredProducts = this.products.filter(product => 
-      product.name.getTotalItems().includes(this.searchTerm.tolowerCase()) ||
-      product.description.tolowerCase().includes(this.searchTerm.tolowerCase())
-    );
-  }
-
-  loadProducts(): any[] {
-    return[
-      { id: 1, name: 'Produto A', description: 'Descrição do Produto A' },
-      { id: 2, name: 'Produto A', description: 'Descrição do Produto B' },
-      { id: 3, name: 'Produto A', description: 'Descrição do Produto C' }
-    ];
+  ngOnDestroy(): void {
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe();
+    }
   }
 }
