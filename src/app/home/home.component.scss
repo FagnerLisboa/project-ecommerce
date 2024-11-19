@@ -1,16 +1,27 @@
-// .container {
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   background-image: url('/assets/background.jpg');
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   color: white;
-//   text-align: center;
-// }
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Garante que nada saia do contêiner */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem cubra todo o espaço */
+  z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+.content {
+  color: white;
+  text-align: center;
+  z-index: 1; /* Garante que o texto fique acima da imagem */
+}
 
 .enter-button {
   margin-top: 20px;
@@ -27,9 +38,9 @@
   background-color: #0056b3;
 }
 
-// .description {
-//   margin-top: 10px;
-//   font-size: 18px;
-//   font-weight: 300;
-//   max-width: 600px;
-// }
+.description {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 600px;
+}
