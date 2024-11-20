@@ -8,7 +8,7 @@
       aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -27,10 +27,10 @@
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item fixed-icons">
           <a class="nav-link" href="#"><i class="bi bi-person fs-2"></i></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item fixed-icons">
           <a class="nav-link position-relative" routerLink="/carrinho">
             <i class="bi bi-cart fs-2"></i>
             <span *ngIf="cartItems.length > 0" class="position-absolute  translate-middle badge rounded-pill bg-danger">
