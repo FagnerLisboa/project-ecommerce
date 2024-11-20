@@ -15,5 +15,4 @@ export class HomeComponent implements OnInit {
   navigateToShop() {
     this.router.navigate(['/products']);
   }
-
 }
