@@ -1,14 +1,79 @@
-.navbar .nav-item .position-relative {
-  position: relative;
+/* Ajustes gerais da navbar */
+.fixed-top {
+  background-color: #343a40; /* Cor de fundo escura */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.navbar .nav-item .badge {
-  font-size: 0.75rem;
-  min-width: 1.5rem;
-  padding: 0.2rem 0.5rem;
+/* Estilo para os ícones sempre visíveis */
+.d-flex.align-items-center {
+  gap: 15px; /* Espaço entre os ícones */
 }
 
-.navbar .nav-item .badge {
+/* Ícones com um tamanho maior */
+.nav-link i {
   color: white;
+  font-size: 1.8rem;
+}
+
+/* Estilo do badge no ícone do carrinho */
+.badge {
+  font-size: 0.75rem;
+  min-width: 1.2rem;
+  padding: 0.2rem 0.4rem;
   background-color: red;
+  color: white;
+}
+
+/* Efeito de expansão no campo de busca */
+.form-control {
+  width: 100%;
+  max-width: 200px;
+  transition: max-width 0.4s ease;
+}
+.form-control:focus {
+  max-width: 300px; /* Expande quando focado */
+  box-shadow: 0 0 8px rgba(0, 209, 178, 0.5); /* Sombra verde suave */
+  border-color: #00d1b2; /* Borda verde suave */
+}
+
+/* Botão de colapso com efeito de pulsação */
+.navbar-toggler {
+  border: none;
+  background: none;
+  outline: none;
+}
+.navbar-toggler:hover {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Botão de colapso com efeito de pulsação */
+.navbar-toggler {
+  border: none;
+  background: none;
+  outline: none;
+}
+.navbar-toggler:hover {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
